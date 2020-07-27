@@ -1,14 +1,13 @@
 package pitch90Bet.tests;
 
 import org.junit.Test;
-import pitch90Bet.pages.LoginPage;
 import pitch90Bet.pages.MainPage;
 import pitch90Bet.pages.RegistrationPage;
 
 public class RegistrationTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage(driver);
-    MainPage mainPage = new MainPage(driver);
+    MainPage mainPage = new MainPage(driver, wait);
 
     @Test
     public void invalidRegistration() {
@@ -23,7 +22,7 @@ public class RegistrationTests extends TestBase {
                 .clickOnAceeptCheckbox()
                 .clickOnOver18yearsOldCheckbox()
                 .clickOnRegisterButton();
-        mainPage.checkUnsuccessRegistration();
+        mainPage.checkUnsuccessfulRegistration();
     }
 
     @Test
@@ -56,7 +55,7 @@ public class RegistrationTests extends TestBase {
                 .clickOnAceeptCheckbox()
                 .clickOnOver18yearsOldCheckbox()
                 .clickOnRegisterButton();
-        mainPage.checkUnsuccessRegistration();
+        mainPage.checkUnsuccessfulRegistration();
     }
 
     @Test

@@ -5,7 +5,7 @@ import pitch90Bet.pages.MainPage;
 
 public class MainPageTests extends TestBase {
 
-    MainPage mainPage = new MainPage(driver);
+    MainPage mainPage = new MainPage(driver, wait);
 
     @Test
     public void topEventDropDownPoopUp() {
@@ -24,7 +24,17 @@ public class MainPageTests extends TestBase {
 
         mainPage.clickOnSport();
         mainPage.clickFirstItemInSportCategory();
-        mainPage.checkSoccerOpened();
+        mainPage.checkSoccerSportOpened();
+    }
+
+    @Test
+    public void liveCategory() {
+
+        driver.get("http://localhost:8000/");
+
+        mainPage.clickOnLive();
+        mainPage.clickFirstItemInLiveCategory();
+        mainPage.checkLiveHeaderOpened();
     }
 
 }

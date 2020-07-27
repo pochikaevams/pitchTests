@@ -7,7 +7,10 @@ import pitch90Bet.pages.MainPage;
 public class LoginTests extends TestBase {
 
     LoginPage loginPage = new LoginPage(driver);
-    MainPage mainPage = new MainPage(driver);
+    MainPage mainPage = new MainPage(driver, wait);
+
+    public LoginTests() throws InterruptedException {
+    }
 
     @Test
     public void validLogin() {
@@ -30,7 +33,7 @@ public class LoginTests extends TestBase {
         loginPage.setPhone("22222222")
                 .setPwdField("1232")
                 .clickLogButton();
-        mainPage.checkUnsuccessLogin();
+        mainPage.checkUnsuccessfulLogin();
     }
 
     @Test
@@ -42,7 +45,7 @@ public class LoginTests extends TestBase {
         loginPage.setPhone("")
                 .setPwdField("")
                 .clickLogButton();
-        mainPage.checkUnsuccessLogin();
+        mainPage.checkUnsuccessfulLogin();
     }
 
     @Test
@@ -54,7 +57,7 @@ public class LoginTests extends TestBase {
         loginPage.setPhone("22222222")
                 .setPwdField("")
                 .clickLogButton();
-        mainPage.checkUnsuccessLogin();
+        mainPage.checkUnsuccessfulLogin();
     }
 
     @Test
